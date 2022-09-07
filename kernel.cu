@@ -43,7 +43,7 @@ cudaMemcpy(b_d, b, M*sizeof(double), cudaMemcpyHostToDevice);
     // Call kernel
     startTime(&timer);
     const unsigned int numThreadsPerBlock = 512;
-    const unsigned int numBlocks = (N + numThreadsPerBlock – 1)/numThreadsPerBlock;
+    const unsigned int numBlocks = (M + numThreadsPerBlock – 1)/numThreadsPerBlock;
     vecMax_kernel <<< numBlocks, numThreadsPerBlock >>> (a_d, b_d, c_d, M);
     
 
